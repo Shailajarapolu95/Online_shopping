@@ -1,51 +1,22 @@
-<body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            Online Shopping
-        </a>
-    </nav>
-    <h3>Products</h3>
-    <% @products.each do |product| %>
-    <div class="container-fluid ">
-        <div class="row ">
-            <%# <div class="col p-3">Image : <%= f.image_url %>
-            <div class="col p-3"><%= image_tag(product.image_url.url, style: 'height:60px;width:auto;')%></div>
-            <div class="col p-3">Name :<%= product.name %></div>
-            <div class="col p-3">Price : <%= product.price %></div>
-            <div class="col p-3">Quantity : <%= product.quantity %></div>
-        </div>
+<td><%= link_to 'Add', new_product_path%>
+<h3>Products</h3>
+<% @products.each do |product| %>
+<div class="container-fluid ">
+<table class="table">
+    <div class="row ">
+        <%# <div class="col p-3">Image : <%= f.image_url %>
+        <div class="col p-3"><%= image_tag(product.image_url.url, style: 'height:60px;width:auto;')%></div>
+        <div class="col p-3">Name :<%= product.name %></div>
+        <div class="col p-3">Price : <%= product.price %></div>
+        <div class="col p-3">Quantity : <%= product.quantity %></div>
     </div>
-    <%= link_to 'edit', edit_product_path(product)%> |
- <a href="/show">show</a>
- <%= link_to 'show', { controller: 'products', action: 'show'} %> 
-    <%# <td><%= link_to 'Delete',product_path(product.id),method: :delete,data: { confirm: 'Are you sure?' } %>
-    <td><%= link_to 'Add', new_product_path(product)%>
-    <td><%= link_to product.name, product_path(product) %></td>
-    <%# <td><%= button_to 'Edit', edit_product_path(product), method: 'get'%>
-    <td><%= button_to 'Remove', product_path(product), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-</body>
-
-</html>
-<div class="site-title ">
-<a href="/marketing-solutions" class="site-title-link js-analytics-event" data-analytics-config="{&quot;category&quot;:&quot;Internal&quot;,&quot;action&quot;:&quot;click - Marketing Solutions&quot;,&quot;label&quot;:&quot;/content/me/business/en-us/marketing-solutions - header&quot;,&quot;componentId&quot;:&quot;header_659957310&quot;}">
-<span class="site-title-logo">
-<span class="a11y-text">LinkedIn logo</span>
-<svg class="full"><use xlink:href="#linkedin-logo-blue-21" data-size="large"></use></svg>
-<span class="a11y-text">LinkedIn logo</span>
-<svg class="icon"><use xlink:href="#inbug-blue-28" data-size="large"></use></svg>
-</span>
-<span class="site-title-spacer">LinkedIn</span>
-<span class="site-title-text standard ">Marketing Solutions</span>
-</a>
-<button data-menu="primary" data-open="Open menu" class="site-title-menu hamburger js-analytics-event" title="Open menu" data-close="Close menu">
-<span class="site-title-icon">
-<li-icon type="hamburger-icon" size="" class="closed" a11y-text="" ""="" aria-hidden="true"><svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon"><g class="large-icon" style="fill: currentColor">
-        <path d="M2,16H22v2H2V16ZM2,6V8H22V6H2Zm0,7H22V11H2v2Z"></path>
-      </g></svg></li-icon>
-<li-icon type="cancel-icon" size="" class="open" a11y-text="" ""="" aria-hidden="true"><svg viewBox="0 0 24 24" width="24px" height="24px" x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon"><g class="large-icon" style="fill: currentColor">
-        <path d="M20,5.32L13.32,12,20,18.68,18.66,20,12,13.33,5.34,20,4,18.68,10.68,12,4,5.32,5.32,4,12,10.69,18.68,4Z"></path>
-      </g></svg></li-icon>
-</span>
-</button>
+   </table>
 </div>
+<%= link_to 'Edit', edit_product_path(product)%> |
+<%= link_to 'Show', { controller: 'products', action: 'show'} %>
+<%= button_to 'Remove', product_path(product), method: 'delete', data: { confirm: 'Are you sure?' } %>
+<%# <td><%= link_to 'Delete',product_path(product.id),method: :delete,data: { confirm: 'Are you sure?' } %>
+<%# <a href="/show">show</a> %>
+<%# <td><%= link_to product.name, product_path(product) %>
+<%# <td><%= button_to 'Edit', edit_product_path(product), method: 'get'%>
+<% end %>
