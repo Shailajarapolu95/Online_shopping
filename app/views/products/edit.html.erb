@@ -1,0 +1,23 @@
+<%= form_with model: @product do |form|%>
+<h1>Products</h1>
+<div class="form-group p-2">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+</div>
+<div class="form-group p-2">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+</div>
+<div class="form-group p-2">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+</div>
+<div class="form-group p-2">
+    <%= form.label :attachment %></br>
+    <%= form.file_field :image_url %></br>
+</div>
+
+<div class="form-group p-2">
+    <%= form.submit :submit %>
+</div>
+<% end %>

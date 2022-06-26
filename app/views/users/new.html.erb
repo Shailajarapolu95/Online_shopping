@@ -1,0 +1,55 @@
+<%= form_for :user, url: '/users' do |form| %>
+<section class="vh-50 gradient-custom">
+    <div class="container py-5 h-50">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-light text-black" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h2 class="fw-bold mb-5">Sign Up</h2>
+                        <div>
+                            <% if flash[:notice].present?%>
+                            <%flash[:notice].each do |message| %>
+                            <p class="text-danger"><%= message %></p>
+                            <%end%>
+                            <%end%>
+                        </div>
+
+                        <form>
+                         <div class="form-outline mb-2">
+                                <strong><%= form.label :email %>&nbsp &nbsp</strong>
+                                <%= form.text_field :email, placeholder: "Email" %>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <strong><%= form.label :first_name %>&nbsp &nbsp</strong>
+                                <%= form.text_field :first_name ,placeholder: "First name"%>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <strong><%= form.label :last_name %>&nbsp &nbsp</strong>
+                                <%= form.text_field :last_name, placeholder: "Last name" %>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <strong><%= form.label :password %> </strong>
+                                <%= form.password_field :password, placeholder: "password" %>
+                            </div>
+                            <!-- Submit button -->
+                            <div class="form-group">
+
+                                <%=  submit_tag("Sign Up") %>
+
+                            </div>
+                            <strong>
+                                Login&nbsp;here!
+                            </strong>
+                            <span>
+                                <a class="nav-link" href="/login">Login</a>
+                            </span>
+                            <% end %>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</html>

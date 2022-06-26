@@ -1,0 +1,19 @@
+<h3>Products</h3>
+<% @products.each do |product| %>
+<div class="container-fluid ">
+    <div class="row ">
+        <%# <div class="col p-3">Image : <%= f.image_url %>
+        <%= image_tag(product.image_url.url, style: 'height:100px;width:100px;')%></br>
+    </div>
+    <div clas="row">
+         <%= product.name %>
+        <div class="row">
+            Price : <%= product.price %>
+        </div>
+        <div class="row">
+            Quantity : <%= product.quantity %>
+        </div>
+    </div>
+</div>
+</div>
+<% end %>
