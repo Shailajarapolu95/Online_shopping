@@ -15,15 +15,16 @@ class ProductsController < ApplicationController
   end
   def update
     @product = Product.find(params[:id])
-  @product.update(products_params)
-  redirect_to products_path
+    @product.update(products_params)
+    redirect_to products_path
   end
   def show
+    # @product = Product.find(params[:id])
     @products = Product.all
   end
     def destroy
      @product =Product.find(params[:id])
-    @product.destroy
+     @product.destroy
       flash[:note] = "delete record succesfully"
       redirect_to  products_path
     end

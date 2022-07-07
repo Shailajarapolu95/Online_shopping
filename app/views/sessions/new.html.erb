@@ -1,28 +1,37 @@
-<section class="vh-50 gradient-custom">
-    <div class="container py-5 h-50">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-light text-black" style="border-radius: 1rem;">
-                    <div class="card-body p-5 text-center">
-                        <div>
-                            <%= flash[:notice] if flash[:notice]%>
-                        </div>
-                        <h3>User Login</h3></br>
-                        <%= form_tag '/login' do %>
-                        <%= label_tag 'Email :'%>
-                        <%= text_field_tag :name, params[:name] %></br>
-                        <br>
-                        <%= label_tag 'Password : '%>
-                        <%= password_field_tag :password %></p></br>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-                        <%= submit_tag "Log In" %></br></br>
-                        <span>
-                            <a class="nav-link" href="/signup">Sign Up</a>
-                        </span>
-                        <% end %>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <div>
+                                    <%= flash[:notice] if flash[:notice]%>
+                                </div>
+                                <%= form_tag '/login' do %>
+                                <label for="Email" class="text-info"><%= label_tag 'Email :'%></label>
+                                    <%= text_field_tag :name, params[:name], class: 'form-control' %></br> 
+                                <label for="password" class="text-info"><%= label_tag 'Password : '%></label>
+                                    <%= password_field_tag :password, params[:password], class: 'form-control' %>
+                            </div>
+                            <%= submit_tag "Log In" %></br></br>
+                            <span>
+                                <a class="link-primary" href="/signup">Sign Up</a>
+                                 <%= link_to 'Logout', '/logout', :data => { :confirm => 'Are you sure?' }%>
+                            </span>
+                            <% end %>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</body

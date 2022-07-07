@@ -1,22 +1,25 @@
-<td><%= link_to 'Add', new_product_path%>
-<h3>Products</h3>
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand text-center ">Products</a>
+    <div class="nav-item me-3 me-lg-0">
+        <%= link_to 'Logout', '/logout', :data => { :confirm => 'Are you sure?' }%>
+    </div>
+</nav>
+<%= link_to 'Add', new_product_path%>
 <% @products.each do |product| %>
 <div class="container-fluid ">
-<table class="table">
-    <div class="row ">
-        <%# <div class="col p-3">Image : <%= f.image_url %>
-        <div class="col p-3"><%= image_tag(product.image_url.url, style: 'height:60px;width:auto;')%></div>
-        <div class="col p-3">Name :<%= product.name %></div>
-        <div class="col p-3">Price : <%= product.price %></div>
-        <div class="col p-3">Quantity : <%= product.quantity %></div>
-    </div>
-   </table>
+    <table class="table">
+        <div class="row ">
+            <%# <div class="col p-3">Image : <%= product.image_url %>
+            <div class="col p-3"><%= image_tag(product.image_url.url, style: 'height:60px;width:auto;')%></div>
+            <div class="col p-3">Name :<%= product.name %></div>
+            <div class="col p-3">Price : <%= product.price %></div>
+            <div class="col p-3">Quantity : <%= product.quantity %></div>
+        </div>
+    </table>
 </div>
-<%= link_to 'Edit', edit_product_path(product)%> |
-<%= link_to 'Show', { controller: 'products', action: 'show'} %>
+<%= link_to 'Edit', edit_product_path(product)%>
+|<%= link_to product.name, product_path(product) %>
+<%= link_to 'Show', { controller: 'products', action: 'show' ,id:product.id } %>
 <%= button_to 'Remove', product_path(product), method: 'delete', data: { confirm: 'Are you sure?' } %>
-<%# <td><%= link_to 'Delete',product_path(product.id),method: :delete,data: { confirm: 'Are you sure?' } %>
-<%# <a href="/show">show</a> %>
-<%# <td><%= link_to product.name, product_path(product) %>
-<%# <td><%= button_to 'Edit', edit_product_path(product), method: 'get'%>
+<%# <%= button_to "Add to cart", line_items_add_path(:product_id => product.id) %>
 <% end %>

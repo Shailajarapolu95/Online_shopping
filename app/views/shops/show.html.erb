@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-light justify-content-between ">
+    <a class="navbar-brand text-center bd-info"></a>
+    <h3>Online Shopping</h3>
+    <form class="d-flex">
+        <a class="nav-link" href="/lineitems"><i class="bi bi-cart"><%= @line_items_count %></i></a>
+        <a class="nav-link" href="/add_address"><i class="bi bi-person-circle"></i></a>
+    </form>
+</nav>
+<div class="container-fluid h-100 ">
+    <div class="row h-100">
+        <%= render "/shared/vertical_bar" %>
+        <div class="col-10 " style="text-align: justify;">
+            <div>
+                <%= flash[:notice] if flash[:notice]%>
+            </div>
+            <% @products.each do |product| %>
+            <%= image_tag(product.image_url.url, style: 'height:120px;width:120px;')%></br>
+            <%= product.name %></br>
+            Price : <%= product.price %></br>
+            Quantity : <%= product.quantity %></br>
+            <%= link_to "Add to cart", ("add_to_cart/#{product.id}") %>
+            <hr>
+            <% end %>
+        </div>
+    </div>
+</div>
+</div>

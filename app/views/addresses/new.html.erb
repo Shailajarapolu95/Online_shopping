@@ -1,0 +1,40 @@
+<h3 class="text-center text-white pt-5">Sign up form</h3>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <h3 class="text-center text-success">Add address</h3>
+                <div class="form-group">
+                    <div>
+                        <%= flash[:notice] if flash[:notice]%>
+                    </div>
+                    <%= form_with model: @address do |form|%>
+
+                    <label for="address_line_1" class="text-success"><%= form.label :address_line_1 %></label>
+                    <%= form.text_field :address_line_1 ,placeholder: "address_line_1", class: 'form-control' %></br>
+
+                    <label for="address_line_2" class="text-success"><%= form.label :address_line_2 %></label>
+                    <%= form.text_field :address_line_2 ,placeholder: "address_line_2", class: 'form-control' %></br>
+
+                    <label for="city" class="text-success"><%= label_tag 'city '%></label>
+                    <div class="form-control">
+                    <%= form.select(:city, options_for_select(['select', 'Kothagudem','Manuguru','Hyderabad','Khammam','warangal'])) %>
+                    </div>
+
+                    <label for="state" class="text-success"><%= label_tag 'state '%></label>
+                    <div class="form-control">
+                    <%= form.select(:state, options_for_select(['select', 'Telangana','Andhra Pradesh','Tamilnadu','Gujarath','Maharashtra'])) %>
+                    </div>
+
+                    <label for="zip" class="text-success"><%= label_tag 'zip '%></label>
+                    <%= form.text_field :zip ,placeholder: "zip", class: 'form-control' %></br>
+                </div>
+                <div class="form-group">
+                    <%= form.submit class:"form-control btn-info btn-block fa-lg gradient-custom-2 mb-3" %>
+                </div>
+                <% end %>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

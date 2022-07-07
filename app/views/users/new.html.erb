@@ -1,55 +1,38 @@
-<%= form_for :user, url: '/users' do |form| %>
-<section class="vh-50 gradient-custom">
-    <div class="container py-5 h-50">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-light text-black" style="border-radius: 1rem;">
-                    <div class="card-body p-5 text-center">
-                        <h2 class="fw-bold mb-5">Sign Up</h2>
-                        <div>
-                            <% if flash[:notice].present?%>
-                            <%flash[:notice].each do |message| %>
-                            <p class="text-danger"><%= message %></p>
-                            <%end%>
-                            <%end%>
-                        </div>
-
-                        <form>
-                         <div class="form-outline mb-2">
-                                <strong><%= form.label :email %>&nbsp &nbsp</strong>
-                                <%= form.text_field :email, placeholder: "Email" %>
-                            </div>
-                            <div class="form-outline mb-2">
-                                <strong><%= form.label :first_name %>&nbsp &nbsp</strong>
-                                <%= form.text_field :first_name ,placeholder: "First name"%>
-                            </div>
-                            <div class="form-outline mb-2">
-                                <strong><%= form.label :last_name %>&nbsp &nbsp</strong>
-                                <%= form.text_field :last_name, placeholder: "Last name" %>
-                            </div>
-                            <div class="form-outline mb-2">
-                                <strong><%= form.label :password %> </strong>
-                                <%= form.password_field :password, placeholder: "password" %>
-                            </div>
-                            <!-- Submit button -->
-                            <div class="form-group">
-
-                                <%=  submit_tag("Sign Up") %>
-
-                            </div>
-                            <strong>
-                                Login&nbsp;here!
-                            </strong>
-                            <span>
-                                <a class="nav-link" href="/login">Login</a>
-                            </span>
-                            <% end %>
+<h3 class="text-center text-white pt-5">Sign up form</h3>
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <h3 class="text-center text-info">Sign Up</h3>
+                <div class="form-group">
+                    <div>
+                        <%= flash[:notice] if flash[:notice]%>
                     </div>
-                    </form>
+                    <%= form_for :user, url: '/users' do |form| %>
+                    <label for="Email" class="text-info"><%= label_tag 'Email :'%></label>
+                    <%= form.text_field :email ,placeholder: "Email", class: 'form-control' %></br>
+
+                    <label for="firstname" class="text-info"><%= form.label :first_name %></label>
+                    <%= form.text_field :first_name ,placeholder: "First name", class: 'form-control' %></br>
+
+                    <label for="firstname" class="text-info"><%= form.label :last_name %></label>
+                    <%= form.text_field :last_name ,placeholder: "Last name", class: 'form-control' %></br>
+
+                    <label for="password" class="text-info"><%= label_tag 'Password : '%></label>
+                    <%= form.password_field :password,placeholder: "Password", class: 'form-control' %>
                 </div>
+                <div class="form-group">
+                    <%=  submit_tag("Sign Up") %>
+                </div>
+                <strong>
+                    <p> Login Here...!</p>
+                </strong>
+                <span>
+                    <a class="link-primary" href="/login">Login</a>
+                </span>
+                <% end %>
+                </form>
             </div>
         </div>
     </div>
-</section>
-
-</html>
+</div>
