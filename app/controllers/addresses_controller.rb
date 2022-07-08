@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
   def create
     address = Address.new(address_params)
+    address.user_id = session[:user_id]
     address.save
     redirect_to "/shopping"
   end
@@ -15,6 +16,6 @@ class AddressesController < ApplicationController
   end
   private
   def address_params
-    params.require(:address).permit(:user_id,:address_line_1, :address_line_1, :city,:state, :zip)
+    params.require(:address).permit(:address_line_1, :address_line_1, :city,:state, :zip)
 end
 end

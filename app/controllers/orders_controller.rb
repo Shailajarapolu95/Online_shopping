@@ -1,8 +1,5 @@
 class OrdersController < ApplicationController
-  def show
-    @cart = Cart.where(user_id: session[:user_id]).first
-    @line_item = LineItem.all
-end
+
     def create
       @cart = Cart.find(params[:id])
       @line_items = @cart.line_items  #LineItem.find_by(cart_id: params[:id])
@@ -14,13 +11,5 @@ end
     end
     def index
       @orders = Order.all
-    end
-    def address
-      
-    end
-
-  private
-    def order_params
-      params.require(:order).permit(user_id: user.user_id,actual_price:,final_price:)
     end
   end

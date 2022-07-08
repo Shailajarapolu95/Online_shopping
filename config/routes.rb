@@ -20,6 +20,7 @@ Rails.application.routes.draw do
    get '/signup' => 'users#new'
    post '/signup' => 'users#new'
    get '/order/:id' => 'orders#create'
+   post '/order/:id' => 'orders#create'
    get '/orders' => 'orders#index'
   post '/add_address' => 'addresses#new'
   get '/add_address' => 'addresses#new'
