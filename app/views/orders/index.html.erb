@@ -15,10 +15,19 @@
                 <div class="col-md-12">
                     <strong>Price :</strong><%= line_item.product.price%>
                 </div>
-                 <%# Total Price: <%= number_to_currency(line_item.product.total_price) %> %>
-                <hr>
+                <%# Total Price: <%= number_to_currency(line_item.product.total_price) %>
+                <div class="col-md-12">
+                    <% check_status = "Will be delivered today"%>
+                    <strong>Status :</strong><%= check_status%>
+                </div>
+                <div class="col-md-12">
+                    <strong>Actual price :</strong><%= order.actual_price%>
+                </div>
+                <div class="col-md-12">
+                    <strong>Final price :</strong><%= order.final_price%>
+                </div>
+             <hr>
             <% end %>
-        <%# <%= button_to 'Check Status', {controller:"shops",action:"show"} ,class:"btn btn-outline-info" %> 
-       <% end %>
+        <% end %>
     </div>
 </section>

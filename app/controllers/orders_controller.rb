@@ -11,5 +11,10 @@ class OrdersController < ApplicationController
     end
     def index
       @orders = Order.all
+      order = Order.new(check_status: "Your order will be placed today")
+    end
+    private
+    def order_params
+      params.require(:order).permit(:user_id , :actual_price , :final_price , :address_id , check_status: "Arriving soon..")
     end
   end
