@@ -13,8 +13,8 @@ class CartsController < ApplicationController
         redirect_to shopping_path
     end
 
-    def destroy
-        cart = Cart.where(user_id:session[:user_id]).first
-       cart.destroy
-    end
+    # def destroy
+    #     cart = Cart.where(user_id:session[:user_id]).first
+    #    cart.destroy
+    # end
 end
