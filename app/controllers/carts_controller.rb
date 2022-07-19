@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+    before_action :check_login
     def add_to_cart
         product = Product.find(params[:id])
         cart = Cart.where(user_id:session[:user_id]).first
@@ -11,14 +12,9 @@ class CartsController < ApplicationController
         flash[:notice]="Successfully added to the cart"
         redirect_to shopping_path
     end
-    def show
-        @cart = @current_cart
+
+    def destroy
+        cart = Cart.where(user_id:session[:user_id]).first
+       cart.destroy
     end
-    
-    # def destroy
-    #   @cart = @current_cart
-    #   @cart.destroy
-    #   session[:cart_id] = nil
-    #   redirect_to root_path
-    # end
 end

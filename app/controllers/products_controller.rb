@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :check_login
   def index
     @products = Product.all
   end

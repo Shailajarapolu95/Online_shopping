@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   post '/add_address' => 'addresses#new'
   get '/add_address' => 'addresses#new'
   get '/address' => 'addresses#index'
+  post '/cart/:id' => 'line_items#delete'
 end
